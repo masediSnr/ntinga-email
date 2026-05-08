@@ -10,12 +10,19 @@ export default async function handler(req, res) {
 
   // 2. Transporter Setup
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
+        host: 'mail.ntingatechnologies.co.za', // HostAfrica usually uses mail.yourdomain
+        port: 465,                             // SSL Port
+        secure: true,                          // Required for 465
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,        // Your Roundcube/Email password
+        },
+        // HostAfrica servers sometimes require this for local certificates
+        tls: {
+            rejectUnauthorized: false 
+        }
+    });
+
 
   try {
     // 3. Send the Mail
