@@ -4,7 +4,7 @@
   "description": "email backend for ntinga technologies website",
   "license": "ISC",
   "author": "Terrence Masedi Mokgope",
-  "type": "commonjs",
+  "type": "module",
   "main": "send.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
